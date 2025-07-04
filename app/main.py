@@ -11,5 +11,9 @@ templates = Jinja2Templates(directory="templates")
 async def root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
+@app.get("/dashboard")
+async def dashboard(request: Request):
+    return templates.TemplateResponse("dashboard.html", {"request": request})
+
 if __name__ == "__main__":
     uvicorn.run("main:app", reload=True)
